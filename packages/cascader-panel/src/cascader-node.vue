@@ -70,6 +70,10 @@
             }
           });
         } else {
+          if (config.checkStrictly) {
+            const { value } = this;
+            panel.handleCheckChange(value);
+          }
           panel.handleExpand(node);
         }
       },
@@ -98,7 +102,7 @@
         if (multiple) {
           return this.renderCheckbox(h);
         } else if (checkStrictly) {
-          return this.renderRadio(h);
+          // return this.renderRadio(h);
         } else if (isLeaf && isChecked) {
           return this.renderCheckIcon(h);
         }
